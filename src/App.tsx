@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SignIn from "./pages/SignIn";
+import "./styles/main.scss";
+import { Route, Routes } from "react-router-dom";
+import Dates from "./pages/Dates";
+import PrivateRoute from "./shared/PrivateRoute";
+import useStartConfig from "./hooks/useStartConfig";
 
 function App() {
+
+  useStartConfig()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Dates />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/sign" element={<SignIn />} />
+      </Routes>
+    </>
   );
 }
 
