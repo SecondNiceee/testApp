@@ -36,7 +36,9 @@ export const fetchAuth = createAsyncThunk(
             return response.data
         }
         catch(e){
+            alert("Корсы!!")
             alert(JSON.stringify(e))
+
         }
     }
 )
