@@ -10,6 +10,17 @@ interface IOpen {
      date : IDate,
      action : ACTIONS
 }
+const newDate = {
+    id : "",
+    companySigDate : "",
+    companySignatureName : "",
+    documentName : "",
+    documentStatus : "",
+    documentType : "",
+    employeeNumber : "",
+    employeeSigDate : "",
+    employeeSignatureName : ""
+}
 const Dates = () => {
 
     const [open , setOpen] = useState<IOpen>({
@@ -29,7 +40,7 @@ const Dates = () => {
     })
 
     const addFunction = useCallback( () => {
-        setOpen((value) => ({...value, isOpen: true, action:ACTIONS.ADD}))
+        setOpen((value) => ({date : newDate, isOpen: true, action:ACTIONS.ADD}))
     } , [] )
 
     const changeFunction = useCallback( (date:IDate) => {

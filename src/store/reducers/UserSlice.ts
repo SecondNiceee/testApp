@@ -27,7 +27,8 @@ export const fetchAuth = createAsyncThunk(
     async function (params:IFethc) {
         const response = await axios.post(`${HOST}/ru/data/v3/testmethods/docs/login`, params, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
                 }
         })
         console.log(response.data)
